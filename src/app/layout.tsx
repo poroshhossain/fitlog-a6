@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Oswald , Inter } from "next/font/google";
 import "./globals.css";
+import Navber from "@/components/shared/Navber";
+import Footer from "@/components/shared/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const OswaldFont = Oswald({
+  variable:"--font-Oswald",
+  subsets:["latin"]
+})
+const InterFont = Inter({
+  variable:"--font-Inter",
+  subsets:["latin"]
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,9 +23,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-theme="light"
+      className={`${OswaldFont.variable} ${InterFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navber/>
+        <main className="flex-1">{children}</main>
+        <Footer/>
+      </body>
     </html>
   );
 }
