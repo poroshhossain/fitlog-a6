@@ -12,7 +12,7 @@ const Navber = () => {
         { label: 'My Plan', path: '/myplan' },
     ]
     return (
-        <nav className="bg-cDark">
+        <nav className="bg-cDark border-b border-cLight/5">
             <div className="max-w-7xl mx-auto">
                 <div className="navbar shadow-sm">
                     <div className="navbar-start">

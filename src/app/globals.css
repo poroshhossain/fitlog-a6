@@ -4,8 +4,9 @@
 
 :root {
   --cPrimary: #ccff00;
-  --cDark: #0C0D10;
+  --cDark: #090A0D;
   --cLight: #FFFFFF;
+  --cSecondary: #222630;
 
 }
 
@@ -13,6 +14,7 @@
   --color-cPrimary: var(--cPrimary);
   --color-cDark: var(--cDark);
   --color-cLight: var(--cLight);
+  --color-cSecondary: var(--cSecondary);
 
   /* google font */
   --font-Inter: var(--font-Inter);

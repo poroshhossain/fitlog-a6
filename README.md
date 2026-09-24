@@ -16,3 +16,5 @@ Technologies Used:
 
 features:
     Navigation menu
+    added footer section
+    
