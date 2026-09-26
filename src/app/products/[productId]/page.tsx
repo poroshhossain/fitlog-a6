@@ -1,3 +1,4 @@
+import NotFound from "@/app/not-found";
 import PlanBtn from "@/components/HomeComponent/PlanSave/PlanBtn";
 import SaveBtn from "@/components/HomeComponent/PlanSave/SaveBtn";
 import { ProductType } from "@/type/ProductType";
@@ -13,6 +14,9 @@ const ProductDetailsPage = async ({ params }: ProductDetailsPageProp) => {
     // console.log(params);
     const { productId } = await params;
     const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${productId}`);
+    if(!res.ok){
+        return <NotFound/>
+    }
     const data: ProductType = await res.json();
     const { name, description, muscleGroups, equipment, difficulty, sets, reps, duration, caloriesBurned, rating, instructions } = data;
     return (
