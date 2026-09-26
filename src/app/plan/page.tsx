@@ -48,7 +48,7 @@ const PlanPage = () => {
 
 
   const [activeTab, setActiveTab] = useState<'plan' | 'save'>('plan');
-  const activeItem = activeTab === 'plan' ? plan : save;
+  const activeItem = activeTab === 'save' ? save : plan;
 
 
   return (
@@ -130,12 +130,12 @@ const PlanPage = () => {
 
               <TabsContent value="plan">
                 <div className="bg-cSecondary/30 border border-cLight/10 py-6 px-4 rounded-2xl h-full">
-                  {sortedSave.length ? (
+                  {sortedPlan.length ? (
                     <div className="">
                       {
-                        sortedSave.map(item => {
+                        sortedPlan.map(item => {
                           return (
-                            <section key={item.id} className="py-3 bg-cSecondary/25">
+                            <section key={item.id} className="py-3 m-3 bg-cSecondary/25">
                               <div className="flex items-center justify-between gap-4">
                                 <div className="flex items-start gap-4">
                                   <div className="relative w-37.5 h-25">
@@ -178,12 +178,12 @@ const PlanPage = () => {
 
               <TabsContent value="save">
                 <div className="bg-cSecondary/30 border border-cLight/10 py-6 px-4 rounded-2xl h-full">
-                  {sortedPlan.length ? (
+                  {sortedSave.length ? (
                     <div className="">
                       {
-                        sortedPlan.map(item => {
+                        sortedSave.map(item => {
                           return (
-                            <section key={item.id}>
+                            <section key={item.id} className="py-3 m-3 bg-cSecondary/25">
                               <div className="flex items-center justify-between gap-4">
                                 <div className="flex items-start gap-4">
                                   <div className="relative w-37.5 h-25">
