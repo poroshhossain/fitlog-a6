@@ -4,13 +4,17 @@ import { usePathname } from "next/navigation"
 import { RxHamburgerMenu } from "react-icons/rx";
 import MainLogo from "@/assets/logo.png"
 import Image from "next/image";
+import { useState } from "react";
+import { usePlanSave } from "@/contextApi/PlanSaveContext";
 
 const Navber = () => {
+    const { plan, save } = usePlanSave();
     const pathname = usePathname();
     const navLinks = [
         { label: 'Workouts', path: '/' },
-        { label: 'My Plan', path: '/myplan' },
+        { label: 'My Plan', path: '/plan' },
     ]
+    const [active, setActive] = useState<'plan' | 'saved'>('plan');
     return (
         <nav className="bg-cDark border-b border-cLight/5">
             <div className="max-w-7xl mx-auto">
@@ -38,8 +42,8 @@ const Navber = () => {
                     </div>
                     <div className="navbar-end">
                         <div className="flex items-center gap-6">
-                            <Link href={'/plan'} className="text-cLight flex items-center gap-1 font-Inter text-[12px]" >Plan<span className={`${pathname === '/plan' ? 'bg-cPrimary w-6 h-6 rounded-full flex items-center justify-center text-cDark ' : ''}`} >0</span></Link>
-                            <Link href={'/saved'} className="text-cLight flex items-center gap-1 font-Inter text-[12px]" >Saved<span className={`${pathname === '/saved' ? 'bg-cPrimary w-6 h-6 rounded-full flex items-center justify-center text-cDark ' : ''}`} >0</span></Link>
+                            <Link onClick={() => setActive('plan')} href={'/plan'} className="text-cLight flex items-center gap-1 font-Inter text-[12px]" >Plan<span className={`${active === 'plan' ? 'bg-cPrimary text-cDark ' : ''} border border-cLight/50  w-6 h-6 rounded-full flex items-center justify-center`} >{plan.length}</span></Link>
+                            <Link onClick={() => setActive('saved')} href={'/plan'} className="text-cLight flex items-center gap-1 font-Inter text-[12px]" >Saved<span className={`${active === 'saved' ? 'bg-cPrimary  text-cDark ' : ''}  border border-cLight/50 w-6 h-6 rounded-full flex items-center justify-center`} >{save.length}</span></Link>
                         </div>
                     </div>
                 </div>

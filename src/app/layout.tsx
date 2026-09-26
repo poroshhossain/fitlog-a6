@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
-import { Oswald , Inter } from "next/font/google";
+import { Oswald, Inter, Geist } from "next/font/google";
 import "./globals.css";
 import Navber from "@/components/shared/Navber";
 import Footer from "@/components/shared/Footer";
+import PlanSaveContext from "@/contextApi/PlanSaveContext";
+import { ToastContainer } from "react-toastify";
+import { cn } from "@/lib/utils";
 
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const OswaldFont = Oswald({
-  variable:"--font-Oswald",
-  subsets:["latin"]
+  variable: "--font-Oswald",
+  subsets: ["latin"]
 })
 const InterFont = Inter({
-  variable:"--font-Inter",
-  subsets:["latin"]
+  variable: "--font-Inter",
+  subsets: ["latin"]
 })
 
 export const metadata: Metadata = {
@@ -24,12 +28,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="light"
-      className={`${OswaldFont.variable} ${InterFont.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", OswaldFont.variable, InterFont.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <Navber/>
-        <main className="flex-1">{children}</main>
-        <Footer/>
+        <PlanSaveContext>
+          <Navber />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <ToastContainer />
+        </PlanSaveContext>
       </body>
     </html>
   );

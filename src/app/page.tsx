@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="bg-cDark">
       {/* Banner */}
       <Suspense fallback={<Lodding />}>
         <Banner />
