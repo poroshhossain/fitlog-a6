@@ -2,7 +2,7 @@ import { ProductType } from "@/type/ProductType";
 import ProductCard from "./ProductCard";
 
 const getProductsApi = async ():Promise<ProductType[]> => {
-  const res = await fetch('https://api.abcz.workers.dev/api/fitlog');
+  const res = await fetch('https://api.api-store.workers.dev/api/fitlog');
   const data = res.json();
   return data
 

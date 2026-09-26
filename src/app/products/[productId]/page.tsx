@@ -13,7 +13,7 @@ interface ProductDetailsPageProp {
 const ProductDetailsPage = async ({ params }: ProductDetailsPageProp) => {
     // console.log(params);
     const { productId } = await params;
-    const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${productId}`);
+    const res = await fetch(`https://api.api-store.workers.dev/api/fitlog/${productId}`);
     if (!res.ok) {
         return <NotFound />
     }
