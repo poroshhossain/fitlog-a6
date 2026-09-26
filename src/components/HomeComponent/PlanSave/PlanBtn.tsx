@@ -19,7 +19,7 @@ const PlanBtn = ({ data }: { data: ProductType }) => {
 
     }
     return (
-        <button onClick={handlePlan} className="bg-cPrimary text-[14px] hover:bg-cPrimary/30 rounded-2xl font-Inter font-semibold  btn btn-xs sm:btn-sm md:btn-md lg:btn-lg "><PiNotepadDuotone />Add to today's plan</button>
+        <button onClick={handlePlan} className="bg-cPrimary text-[14px] hover:bg-cPrimary/30 rounded-2xl font-Inter font-semibold  btn btn-sm md:btn-md lg:btn-lg "><PiNotepadDuotone />Add to today's plan</button>
 
     )
 }

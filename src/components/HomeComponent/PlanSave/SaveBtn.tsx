@@ -21,7 +21,7 @@ const SaveBtn = ({ data }: { data: ProductType }) => {
     }
 
     return (
-        <button onClick={handleSave}  className=" text-[14px] font-Inter font-semibold hover:bg-cPrimary/30 rounded-2xl btn-outline btn border border-cLight/10 text-cLight  btn-xs sm:btn-sm md:btn-md lg:btn-lg"><CiBookmark />Save for later</button>
+        <button onClick={handleSave}  className=" text-[14px] p-3 font-Inter font-semibold hover:bg-cPrimary/30 rounded-2xl btn-outline btn border border-cLight/10 text-cLight  btn-sm md:btn-md lg:btn-lg"><CiBookmark />Save for later</button>
 
     )
 }
