@@ -10,7 +10,6 @@ interface ProductCardProp {
     product: ProductType
 }
 const ProductCard = ({ product }: ProductCardProp) => {
-    console.log(product);
     return (
         <Link href={`/products/${product.id}`} className="bg-cSecondary rounded-2xl">
             <div className="relative aspect-square overflow-hidden w-full h-50 mx-auto  rounded-t-2xl">
@@ -24,8 +23,10 @@ const ProductCard = ({ product }: ProductCardProp) => {
             </div>
             <div className="px-6 py-4">
                 <div className="flex items-center gap-4 py-4">
-                    <button className="bg-cPrimary py-1 px-3 text-cDark rounded-2xl font-Inter font-bold text-[12px]">{product.muscleGroups[0]}</button>
-                    <button className="bg-cPrimary py-1 px-3 text-cDark rounded-2xl font-Inter font-bold text-[12px]">{product.muscleGroups[1]}</button>
+                    {
+                        product.muscleGroups.map((mcl, i) => <button key={i}  className="bg-cPrimary py-1 px-3 text-cDark rounded-2xl font-Inter font-bold text-[12px]">{mcl}</button>)
+                    }
+                    
                 </div>
                 <h2 className="font-Oswald text-[18px] font-bold text-cLight uppercase">{product.name}</h2>
                 <p className="font-Inter text-[12px] text-cLight/45 py-2">{product.equipment}</p>
