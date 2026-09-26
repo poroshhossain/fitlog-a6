@@ -20,7 +20,7 @@ const InterFont = Inter({
 
 export const metadata: Metadata = {
   title: "FitLog-A6 Website",
-  description: "This is FitLog-A6 Website",
+  description: "This is FitLog-A6 Website. A modern and responsive workout library web application built with Next.js",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
