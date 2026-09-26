@@ -159,14 +159,14 @@ const PlanPage = () => {
                           return (
                             <section key={item.id} className="py-3 m-3 bg-cSecondary/25">
                               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                <div className="flex items-start gap-4">
+                                <div className="flex mx-auto md:mx-0 flex-col sm:flex-row items-start gap-4">
                                   <div className="relative w-37.5 h-25">
                                     <Image src={item.image} alt={item.name}
                                       fill
                                       sizes="50vw"
                                       className="object-cover rounded-[10px]" />
                                   </div>
-                                  <div className="px-4">
+                                  <div className="px-4 ">
                                     <h2 className="font-Oswald font-bold text-[16px] text-cLight uppercase">{item.name}</h2>
                                     <p className="text=[12px] font-Inter capitalize text-cLight/50">{item.equipment}</p>
                                     <div className="flex items-center gap-2 font-Inter text-[12px] text-cLight/50 pt-4">
@@ -176,7 +176,7 @@ const PlanPage = () => {
                                     </div>
                                   </div>
                                 </div>
-                                <div className="flex items-center gap-4">
+                                <div className="flex mx-auto md:mx-0 flex-col sm:flex-row items-center gap-4">
                                   <Link href={`/products/${item.id}`}><Button className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl  hover:bg-cPrimary hover:text-cDark border border-cLight/50'>View Details</Button></Link>
                                   {!mark.includes(item.id) && (
                                     <Button onClick={() => handleMarkAsDone(item.id)} className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl bg-cPrimary text-cDark hover:bg-cPrimary hover:text-cDark border border-cLight/50'><FaCheck /> Mark as Done</Button>
@@ -211,8 +211,8 @@ const PlanPage = () => {
                         sortedSave.map(item => {
                           return (
                             <section key={item.id} className="py-3 m-3 bg-cSecondary/25">
-                              <div className="flex items-center justify-between gap-4">
-                                <div className="flex items-start gap-4">
+                              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div className="flex mx-auto md:mx-0 flex-col sm:flex-row items-start gap-4">
                                   <div className="relative w-37.5 h-25">
                                     <Image src={item.image} alt={item.name}
                                       fill
@@ -229,7 +229,7 @@ const PlanPage = () => {
                                     </div>
                                   </div>
                                 </div>
-                                <div className="flex items-center gap-4">
+                                <div className="flex mx-auto md:mx-0 flex-col sm:flex-row items-center gap-4">
                                   <Link href={`/products/${item.id}`}><Button className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl  hover:bg-cPrimary hover:text-cDark border border-cLight/50'>View Details</Button></Link>
                                   {!mark.includes(item.id) && (
                                     <Button onClick={() => handleMarkAsDone(item.id)} className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl bg-cPrimary text-cDark hover:bg-cPrimary hover:text-cDark border border-cLight/50'><FaCheck /> Mark as Done</Button>
