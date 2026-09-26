@@ -2,7 +2,6 @@ import { ProductType } from "@/type/ProductType"
 import Image from "next/image";
 import Link from "next/link";
 import { MdAccessTime } from "react-icons/md";
-import kcalIcon from "@/assets/kcal.png"
 import { IoMdStarOutline } from "react-icons/io";
 import { GoFlame } from "react-icons/go";
 

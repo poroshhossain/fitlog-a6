@@ -1,4 +1,4 @@
-# 💪 FitLog — Workout Library
+# 💪 FitLog-A6
 
 A modern and responsive workout library web application built with Next.js. FitLog helps users explore workouts, add exercises to today's plan, save workouts for later, and manage their workout plan from a single dashboard.
 
@@ -101,35 +101,9 @@ The workout grid, navigation, hero section, cards, and My Plan page adapt to dif
 
 ---
 
-## 🗂️ Project Structure
 
-```text
-src/
-├── app/
-│   ├── page.tsx
-│   ├── my-plan/
-│   │   └── page.tsx
-│   ├── workout/
-│   │   └── [id]/
-│   │       └── page.tsx
-│   ├── loading.tsx
-│   ├── not-found.tsx
-│   └── layout.tsx
-│
-├── components/
-│   ├── Navbar/
-│   ├── Hero/
-│   ├── Library/
-│   ├── WorkoutCard/
-│   ├── WorkoutDetails/
-│   ├── MyPlan/
-│   └── Footer/
-│
-├── context/
-│   └── WorkoutContext.tsx
-│
-├── types/
-│   └── workout.ts
-│
-└── lib/
-    └── utils.ts
+## 👨‍💻 Developer
+
+**Md Porosh Hossain**
+
+Web Developer

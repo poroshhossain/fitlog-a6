@@ -25,10 +25,11 @@ import { FaCheck, FaFireFlameCurved } from "react-icons/fa6"
 import { IoTimeOutline } from "react-icons/io5"
 import { CiStar } from "react-icons/ci"
 import { RxCross1 } from "react-icons/rx"
+import { toast } from "react-toastify";
 
 
 const PlanPage = () => {
-  const { plan, save } = usePlanSave();
+  const { plan, setPlan, save, setSave } = usePlanSave();
   const [sortby, setSortby] = useState<'duration' | 'calories' | 'rating'>('duration');
 
   const sortedItem = (product: ProductType[]) => {
@@ -50,7 +51,28 @@ const PlanPage = () => {
   const [activeTab, setActiveTab] = useState<'plan' | 'save'>('plan');
   const activeItem = activeTab === 'save' ? save : plan;
 
+  const handleRemovePlan = (item: ProductType) => {
+    const deleteItem = plan.filter(pd => pd.id !== item.id);
+    toast.info(`${item.name} Remove item form Plan`)
+    setPlan(deleteItem)
 
+
+  }
+  const handleRemoveSave = (item: ProductType) => {
+    const deleteItem = save.filter(pd => pd.id !== item.id);
+    toast.info(`${item.name} Remove item form Saved`)
+    setSave(deleteItem)
+
+
+  }
+
+  const [mark, setMark] = useState<number[]>([])
+
+  const handleMarkAsDone = (id: number) => {
+    setMark(prev => [...prev, id])
+
+    toast.success("Workout marked as done!")
+  }
   return (
     <section className="bg-cDark text-cLight ">
       <div className="max-w-7xl mx-auto p-4">
@@ -155,9 +177,14 @@ const PlanPage = () => {
                                   </div>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                  <Button className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl  hover:bg-cPrimary hover:text-cDark border border-cLight/50'>View Details</Button>
-                                  <Button className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl bg-cPrimary text-cDark hover:bg-cPrimary hover:text-cDark border border-cLight/50'><FaCheck /> Mark as Done</Button>
-                                  <Button className='text-[12px] font-Inter hover:text-cPrimary font-bold cursor-pointer hover:bg-cPrimary/10'><RxCross1 /></Button>
+                                  <Link href={`/products/${item.id}`}><Button className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl  hover:bg-cPrimary hover:text-cDark border border-cLight/50'>View Details</Button></Link>
+                                  {!mark.includes(item.id) && (
+                                    <Button onClick={() => handleMarkAsDone(item.id)} className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl bg-cPrimary text-cDark hover:bg-cPrimary hover:text-cDark border border-cLight/50'><FaCheck /> Mark as Done</Button>
+                                  )
+
+                                  }
+
+                                  <Button onClick={() => handleRemovePlan(item)} className='text-[12px] font-Inter hover:text-cPrimary font-bold cursor-pointer hover:bg-cPrimary/10'><RxCross1 /></Button>
                                 </div>
                               </div>
                             </section>
@@ -203,9 +230,14 @@ const PlanPage = () => {
                                   </div>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                  <Button className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl  hover:bg-cPrimary hover:text-cDark border border-cLight/50'>View Details</Button>
-                                  <Button className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl bg-cPrimary text-cDark hover:bg-cPrimary hover:text-cDark border border-cLight/50'><FaCheck /> Mark as Done</Button>
-                                  <Button className='text-[12px] font-Inter hover:text-cPrimary font-bold cursor-pointer hover:bg-cPrimary/10'><RxCross1 /></Button>
+                                  <Link href={`/products/${item.id}`}><Button className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl  hover:bg-cPrimary hover:text-cDark border border-cLight/50'>View Details</Button></Link>
+                                  {!mark.includes(item.id) && (
+                                    <Button onClick={() => handleMarkAsDone(item.id)} className='text-[12px] font-Inter py-3 px-5 cursor-pointer rounded-2xl bg-cPrimary text-cDark hover:bg-cPrimary hover:text-cDark border border-cLight/50'><FaCheck /> Mark as Done</Button>
+                                  )
+
+                                  }
+
+                                  <Button onClick={() => handleRemoveSave(item)} className='text-[12px] font-Inter hover:text-cPrimary font-bold cursor-pointer hover:bg-cPrimary/10'><RxCross1 /></Button>
                                 </div>
                               </div>
                             </section>
