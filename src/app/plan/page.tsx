@@ -117,7 +117,7 @@ const PlanPage = () => {
               onValueChange={(value) => setActiveTab(value)}
               defaultValue="plan" className="w-full mt-6">
 
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex flex-col md:flex-row justify-between items-center mb-6">
                 <TabsList className='bg-cSecondary border border-cLight/5 p-6'>
 
                   <TabsTrigger className='p-4 cursor-pointer text-cLight/50 hover:text-cPrimary data-active:bg-cLight/10 data-active:text-cPrimary border data-active:border-cLight/15 ' value="plan">Today’s Plan</TabsTrigger>
@@ -125,8 +125,8 @@ const PlanPage = () => {
                   <TabsTrigger className='p-4 cursor-pointer text-cLight/50 hover:text-cPrimary data-active:bg-cLight/10 data-active:text-cPrimary border data-active:border-cLight/15 ' value="save">Saved</TabsTrigger>
 
                 </TabsList>
-                <div className="flex items-center gap-3">
-                  <h3 className="text-[12px] font-Inter text-cLight/50">Sort By</h3>
+                <div className="flex items-center gap-3 py-4">
+                  <h3 className="text-[12px] w-full font-Inter text-cLight/50">Sort By</h3>
                   <Select
                     value={sortby}
                     onValueChange={(value) => setSortby(value as 'duration' | 'calories' | 'rating')}
@@ -158,7 +158,7 @@ const PlanPage = () => {
                         sortedPlan.map(item => {
                           return (
                             <section key={item.id} className="py-3 m-3 bg-cSecondary/25">
-                              <div className="flex items-center justify-between gap-4">
+                              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                                 <div className="flex items-start gap-4">
                                   <div className="relative w-37.5 h-25">
                                     <Image src={item.image} alt={item.name}
@@ -204,7 +204,7 @@ const PlanPage = () => {
 
 
               <TabsContent value="save">
-                <div className="bg-cSecondary/30 border border-cLight/10 py-6 px-4 rounded-2xl h-full">
+                <div className="bg-cSecondary/30 border border-cLight/10 py-6 px-4 rounded-2xl ">
                   {sortedSave.length ? (
                     <div className="">
                       {
